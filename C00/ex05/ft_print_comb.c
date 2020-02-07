@@ -1,24 +1,42 @@
-#include <stdio.h>
+#include <unistd.h>
 
 void 	ft_a(char a)
 {
 	write(1, &a, 1);
 }
 
+void	ft_stop(char a, char b, char c)
+{
+	ft_a(a);
+	ft_a(b);
+	ft_a(c);
+	if (a !=7 || b !=8 || c !=9) 
+	{
+		ft_a(',');
+		ft_a(' ');
+	}
+}
+
 int main(void)
 {
-	int a
-	int b
-	int c
-
-	for (a = 0; a <= 9; a++)
+	char a;
+	char b;
+	char c;
+	
+	a = '0';
+	while (a <= '7')
 	{
-        	for (b = b+1; b <= 9; b++)
+		b = a+1;
+		while (b <= '8')
 		{
-			for (c = c+1; c <= 9; c++)
+			c = b+1;
+			while (c <= '9')
 			{
-				ft_a(char a, char b, char c, char ' ', char ',')	
+				ft_stop(a, b, c);
+				c++;
 			}
+			b++;
 		}
+		a++;
 	}
 }
