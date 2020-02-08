@@ -1,59 +1,72 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*   ft_print_comb2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mthomas <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/06 16:16:48 by mthomas           #+#    #+#             */
-/*   Updated: 2020/02/08 11:52:22 by mthomas          ###   ########.fr       */
+/*   Created: 2020/02/08 14:26:54 by mthomas           #+#    #+#             */
+/*   Updated: 2020/02/08 18:40:22 by mthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchar(char c)
+void	ft_w(char r)
 {
-	write(1, &c,1);
+	write(1, &r, 1);
 }
 
-void	ft_stop(char a, char b, char c)
+void	ft_stop(char a, char b, char c, char d)
 {
-	ft_putchar(a);
-	ft_putchar(b);
-	ft_putchar(c);
-	if (a != '7' || b != '8' || c != '9')
+	ft_w(a);
+	ft_w(b);
+	ft_w(' ');
+	ft_w(c);
+	ft_w(d);
+	if (a != '9' || b != '8' || c != '9' || d != '9')
 	{
-		ft_putchar(',');
-		ft_putchar(' ');
+		ft_w(',');
+		ft_w(' ');
 	}
 }
 
-void	ft_print_comb(void)
+void	ft_print_comb2(void)
 {
 	char a;
 	char b;
 	char c;
+	char d;
 
-	a='0';
-	while (a <= '7')
+	a = '0';
+	while (a <= '9')
 	{
-		b=a+1;
+		b = '0';
 		while (b <= '8')
 		{
-			c=b+1;
+			c = '0';
 			while (c <= '9')
 			{
-			ft_stop(a, b, c);
-			c++;
+				d = '0';
+				while (d <= '9')
+				{
+					while (c < a)
+					{
+						c = a;
+						d = b+1;
+					}
+					d++;
+					ft_stop(a, b, c, d);
+				}
+				c++;
 			}
-		b++;
+			b++;
 		}
-	a++;
+		a++;
 	}
 }
 
 int	main(void)
 {
-	ft_print_comb();
+	ft_print_comb2();
 }

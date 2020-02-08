@@ -1,0 +1,5 @@
+Credentials cache: API:DB5E9A86-406A-4392-946E-8585F9C69EF9
+        Principal: mthomas@42.FR
+
+  Issued                Expires               Principal
+Feb  8 12:13:09 2020  Feb 15 12:13:09 2020  krbtgt/42.FR@42.FR
